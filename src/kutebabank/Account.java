@@ -73,7 +73,7 @@ public class Account extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
         jLabel9.setText("jLabel9");
 
-        txtaccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtaccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saving", "Checking" }));
 
         jButton3.setText("Find");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -98,14 +98,13 @@ public class Account extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtcust_id)
-                        .addComponent(txtlname)
-                        .addComponent(txtbalance)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtaccount, 0, 167, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(txtcust_id)
+                    .addComponent(txtlname)
+                    .addComponent(txtbalance)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtaccount, 0, 167, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,35 +176,28 @@ public class Account extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            String customer_id = jLabel9.getText();
-            String firstname = txtcust_id.getText();
-            String lastname = txtlname.getText();
-       //     String woreda = txtworeda.getText();
-            String city = txtbalance.getText();
-       //     String branch = jComboBox1.getSelectedItem().toString();
-       //     String phone = txtphone.getText();
+            String account_no = jLabel9.getText();
+            String customerid = txtcust_id.getText();
+            String custname = txtlname.getText();
+            String acctype = txtaccount.getSelectedItem().toString();
+            String balance = txtbalance.getText();
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/oopbank", "root", "");
 
-            insert = con.prepareStatement("insert into customer(cust_id, firstname, lastname, woreda, city, branch, phone) values (?, ?, ?, ?, ?, ?, ?)");
-            insert.setString(1, customer_id);
-            insert.setString(2, firstname);
-            insert.setString(3, lastname);
-        //    insert.setString(4, woreda);
-            insert.setString(5, city);
-       //     insert.setString(6, branch);
-       //     insert.setString(7, phone);
+            insert = con.prepareStatement("insert into account(acc_id, cust_id, acc_type, balance) values (?, ?, ?, ?)");
+            insert.setString(1, account_no);
+            insert.setString(2, customerid);
+            insert.setString(3, acctype);
+            insert.setString(4, balance);
             insert.executeUpdate();
 
-            JOptionPane.showMessageDialog(this,"Record Added");
+            JOptionPane.showMessageDialog(this,"Account has been created successfully!");
 
             txtcust_id.setText("");
             txtlname.setText("");
-       //     txtworeda.setText("");
             txtbalance.setText("");
-        //    jComboBox1.setSelectedIndex(-1);
-        //    txtphone.setText("");
+            txtaccount.setSelectedIndex(-1);
             autoID();
             txtcust_id.requestFocus();
 
@@ -255,16 +247,16 @@ public class Account extends javax.swing.JInternalFrame {
 
         Statement s = con.createStatement();
 
-        ResultSet rs = s.executeQuery("select Max(cust_id) from customer");
+        ResultSet rs = s.executeQuery("select Max(acc_id) from account");
         rs.next();
-        String maxId = rs.getString("Max(cust_id)");
+        String maxId = rs.getString("Max(acc_id)");
 
         if (maxId == null) {
-            jLabel9.setText("CS001");
+            jLabel9.setText("AC001");
         } else {
             long id = Long.parseLong(maxId.substring(2));
             id++;
-            jLabel9.setText("CS" + String.format("%03d", id));
+            jLabel9.setText("AC" + String.format("%03d", id));
         }
 
     } catch (ClassNotFoundException ex) {
