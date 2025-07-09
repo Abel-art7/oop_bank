@@ -70,6 +70,11 @@ public class Customer extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setBackground(new java.awt.Color(102, 102, 102));
         jLabel9.setFont(new java.awt.Font("Impact", 0, 14)); // NOI18N
@@ -246,8 +251,14 @@ public class Customer extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(this,"Record Added");
             
-            
-            
+            txtfname.setText("");
+            txtlname.setText("");
+            txtworeda.setText("");
+            txtcity.setText("");
+            jComboBox1.setSelectedIndex(-1);
+            txtphone.setText("");
+            autoID();
+            txtfname.requestFocus();
             
         } catch (ClassNotFoundException ex) {
             System.getLogger(Customer.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
@@ -256,6 +267,11 @@ public class Customer extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+             setVisible(false);
+             dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

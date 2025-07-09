@@ -30,7 +30,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="C"/>
+                  <KeyStroke key="Alt+C"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Customer"/>
               </Properties>
@@ -41,10 +41,13 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="A"/>
+                  <KeyStroke key="Alt+A"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Account"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -97,7 +100,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="B"/>
+                  <KeyStroke key="Shift+B"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Check Balance"/>
               </Properties>
@@ -115,7 +118,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="U"/>
+                  <KeyStroke key="Alt+A"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="User Account"/>
               </Properties>
@@ -130,7 +133,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="R"/>
+                  <KeyStroke key="Alt+R"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Customer Report "/>
               </Properties>
