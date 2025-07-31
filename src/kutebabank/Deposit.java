@@ -123,8 +123,18 @@ public class Deposit extends javax.swing.JInternalFrame {
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,14 +187,13 @@ public class Deposit extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addGap(24, 24, 24)))
+                        .addComponent(jLabel11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel6))
@@ -255,7 +264,9 @@ public class Deposit extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }          
     }//GEN-LAST:event_jButton3ActionPerformed
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         String accountNo = txtacc.getText().trim();
         String depositAmountStr = jTextField2.getText().trim();
     
@@ -312,9 +323,16 @@ public class Deposit extends javax.swing.JInternalFrame {
     }
 }
 
-private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
-    this.dispose(); // Close the window
-}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose(); // Close the window
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+                                      
+   
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
