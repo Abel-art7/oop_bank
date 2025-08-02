@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package kutebabank;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,8 +16,8 @@ import java.sql.DriverManager;
  *
  * @author kidus
  */
-public class Deposit extends javax.swing.JInternalFrame {
-     public Deposit() {
+public class Deposit extends JInternalFrame{
+    public Deposit() {
         initComponents();
     }
     
@@ -24,9 +25,9 @@ public class Deposit extends javax.swing.JInternalFrame {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://localhost/oopbank", "root", "");
     }
-    
+   
     @SuppressWarnings("unchecked")
-    
+  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -159,14 +160,8 @@ public class Deposit extends javax.swing.JInternalFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel6))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -179,7 +174,13 @@ public class Deposit extends javax.swing.JInternalFrame {
                                 .addGap(36, 36, 36))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(78, 78, 78))))))
+                                .addGap(78, 78, 78))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +215,7 @@ public class Deposit extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9)
                             .addComponent(jButton1)
                             .addComponent(jButton2))
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(13, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12)
@@ -319,17 +320,14 @@ public class Deposit extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "Please enter a valid number");
     } catch (SQLException | ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
-        e.printStackTrace();
-    }
-}
-
+        e.printStackTrace();}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.dispose(); // Close the window
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+  
                                       
    
 
