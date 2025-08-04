@@ -248,7 +248,6 @@ public class Deposit extends JInternalFrame{
                 jLabel6.setText(rs.getString("cust_id"));
                 jLabel7.setText(rs.getString("firstname"));
                 jLabel8.setText(rs.getString("lastname"));
-                jLabel9.setText(rs.getString("date_created"));
                 jLabel11.setText(rs.getString("balance"));
             } else {
                 JOptionPane.showMessageDialog(this, "Account not found");
