@@ -69,7 +69,48 @@ public void search() {
     }
 }
 
+public void withdraw() throws IOException {
+    try {
+        String acc_id = jTextField1.getText().trim();
+        double balance = Double.parseDouble(jTextField3.getText().trim());
+        double amount = Double.parseDouble(jTextField4.getText().trim());
 
+        if (amount > balance) {
+            JOptionPane.showMessageDialog(this, "Insufficient balance.");
+            return;
+        }
+
+        double newBalance = balance - amount;
+
+        // Insert into withdraw table
+        pst = con.prepareStatement("INSERT INTO withdraw(acc_id, cust_id, date, amount) VALUES (?, ?, CURDATE(), ?)");
+        pst.setString(1, acc_id);
+        pst.setString(2, currentCustId);  // Now it's correctly fetched
+        pst.setDouble(3, amount);
+        pst.executeUpdate();
+
+        // Update balance in account table
+        pst = con.prepareStatement("UPDATE account SET balance = ? WHERE acc_id = ?");
+        pst.setDouble(1, newBalance);
+        pst.setString(2, acc_id);
+        pst.executeUpdate();
+
+        JOptionPane.showMessageDialog(this, "Withdrawal successful.");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("withdraw_log.txt", true))) {
+            writer.write("Withdrawal | Account ID: " + acc_id + " | Customer ID: " + currentCustId + 
+                 " | Amount: " + amount + " | Date: " + java.time.LocalDate.now());
+            writer.newLine();
+    }   catch (IOException e) {
+                e.printStackTrace();
+    }
+
+        jTextField3.setText(String.valueOf(newBalance));
+        jTextField4.setText("");
+
+    } catch (SQLException ex) {
+        Logger.getLogger(Withdraw.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
 
 
 
