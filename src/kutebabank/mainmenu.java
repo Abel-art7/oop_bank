@@ -201,10 +201,9 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-      //  Deposit dp = new Deposit();
-      //  jDesktopPane1.add(dp);
-      //  dp.setVisible(true);  
+        Deposit dp = new Deposit();
+        jDesktopPane1.add(dp);
+        dp.setVisible(true);  
     }//GEN-LAST:event_jMenuItem4ActionPerformed
     
     /**
