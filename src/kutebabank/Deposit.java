@@ -286,8 +286,8 @@ public class Deposit extends JInternalFrame{
              
              if (rowsAffected > 0) {
             // Record transaction
-                 String transSql = "INSERT INTO deposit(acc_id, cust_id, amount,) VALUES (?, ?, 'deposit', NOW())";
-                 pstmt = conn.prepareStatement(transSql);
+                 String depositSql = "INSERT INTO deposit(acc_id, cust_id, amount,) VALUES (?, ?, 'deposit', NOW())";
+                 pstmt = conn.prepareStatement(depositSql);
                  pstmt.setString(1, accountNo);
                  pstmt.setDouble(2, depositAmount);
                  pstmt.executeUpdate();
