@@ -238,8 +238,8 @@ public class Deposit extends JInternalFrame{
         }
 
         try (java.sql.Connection conn = connect()) {
-            String sql = "SELECT c.cust_id, c.firstname, c.lastname, a.date_created, a.balance " +
-                     "FROM account a JOIN customer c ON a.cust_id = c.cust_id WHERE a.account_no = ?";
+            String sql = "SELECT a.acc_id, a.cust_id, a.acc_type, a.balance, c.firstname, c.lastname " +
+                     "FROM account a JOIN customer c ON a.cust_id = c.cust_id WHERE a.acc_id = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, accountNo);
             ResultSet rs = pstmt.executeQuery();
