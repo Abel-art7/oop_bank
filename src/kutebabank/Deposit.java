@@ -289,6 +289,7 @@ public class Deposit extends JInternalFrame{
                  String depositSql = "INSERT INTO deposit(acc_id, cust_id, Date, amount,) VALUES (?, ?, 'deposit', NOW())";
                  pstmt = conn.prepareStatement(depositSql);
                  pstmt.setString(1, accountNo);
+                 pstmt.setString(2, jLabel6.getText());
                  pstmt.setDouble(3, depositAmount);
                  pstmt.executeUpdate();
             
