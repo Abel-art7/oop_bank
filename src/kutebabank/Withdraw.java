@@ -85,7 +85,7 @@ public void withdraw() throws IOException {
         // Insert into withdraw table
         pst = con.prepareStatement("INSERT INTO withdraw(acc_id, cust_id, date, amount) VALUES (?, ?, CURDATE(), ?)");
         pst.setString(1, acc_id);
-        pst.setString(2, currentCustId);  // Now it's correctly fetched
+        pst.setString(2, currentCustId);  
         pst.setDouble(3, amount);
         pst.executeUpdate();
 
@@ -96,6 +96,8 @@ public void withdraw() throws IOException {
         pst.executeUpdate();
 
         JOptionPane.showMessageDialog(this, "Withdrawal successful.");
+        jTextField3.setText(String.valueOf(newBalance));
+        jTextField4.setText("");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("withdraw_log.txt", true))) {
             writer.write("Withdrawal | Account ID: " + acc_id + " | Customer ID: " + currentCustId + 
                  " | Amount: " + amount + " | Date: " + java.time.LocalDate.now());
@@ -104,8 +106,7 @@ public void withdraw() throws IOException {
                 e.printStackTrace();
     }
 
-        jTextField3.setText(String.valueOf(newBalance));
-        jTextField4.setText("");
+        
 
     } catch (SQLException ex) {
         Logger.getLogger(Withdraw.class.getName()).log(Level.SEVERE, null, ex);

@@ -120,6 +120,11 @@ public class mainmenu extends javax.swing.JFrame {
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setText("Account to Account");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem5);
 
         jMenuBar1.add(jMenu5);
@@ -175,7 +180,9 @@ public class mainmenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+    Withdraw wd = new Withdraw();
+       jDesktopPane1.add(wd);
+       wd.setVisible(true);        // TODO add your handling code here:
   
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -201,14 +208,19 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Deposit dp = new Deposit();
-        jDesktopPane1.add(dp);
-        dp.setVisible(true);  
+        // TODO add your handling code here:
+        Deposit dc = new Deposit();
+       jDesktopPane1.add(dc);
+       dc.setVisible(true);  
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       Transfer transfer = new Transfer();
+       jDesktopPane1.add(transfer);
+       transfer.setVisible(true);         
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         
         /* Create and display the form */

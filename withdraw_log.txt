@@ -1,0 +1,2 @@
+Withdrawal | Account ID: AC004 | Customer ID: CS004 | Amount: 20000.23 | Date: 2025-08-04
+Withdrawal | Account ID: AC003 | Customer ID: CS003 | Amount: 200.0 | Date: 2025-08-05
