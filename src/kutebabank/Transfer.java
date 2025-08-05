@@ -9,10 +9,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
        
 
 /**
@@ -47,7 +47,7 @@ public class Transfer extends javax.swing.JInternalFrame {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopbank", "root", "");
 
-        con.setAutoCommit(false); 
+        con.setAutoCommit(false);
 
         
         PreparedStatement pst = con.prepareStatement("SELECT balance FROM account WHERE acc_id = ?");

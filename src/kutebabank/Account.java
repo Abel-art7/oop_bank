@@ -17,13 +17,11 @@ import javax.swing.JOptionPane;
 
 public class Account extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Customer
-     */
+   
     public Account() {
         initComponents();
         autoID();
-        branch();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -188,24 +186,7 @@ public class Account extends javax.swing.JInternalFrame {
         setVisible(false);
         dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-    public void exportAccountsToFile() {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("accounts_report.txt"))) {
-        PreparedStatement pst = con.prepareStatement("SELECT * FROM account");
-        ResultSet rs = pst.executeQuery();
-
-        while (rs.next()) {
-            String line = "Account ID: " + rs.getString("acc_id") +
-                          ", Customer ID: " + rs.getString("cust_id") +
-                          ", Type: " + rs.getString("acc_type") +
-                          ", Balance: " + rs.getInt("balance");
-            writer.write(line);
-            writer.newLine();
-        }
-
-        JOptionPane.showMessageDialog(null, "Accounts report exported!");
-    } catch (IOException | SQLException e) {
-    }
-}
+    
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
@@ -302,23 +283,7 @@ public class Account extends javax.swing.JInternalFrame {
         Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
-    public void branch(){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/oopbank", "root", "");
-            insert = con.prepareStatement("select * from branch");
-            ResultSet rs = insert.executeQuery();
-    //        jComboBox1.removeAllItems();
-            
-            while(rs.next()){
-    //            jComboBox1.addItem(rs.getString(2));
-            }
-        } catch (ClassNotFoundException ex) {
-            System.getLogger(Account.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        } catch (SQLException ex) {
-            System.getLogger(Account.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
-    }
+    
     
     
 

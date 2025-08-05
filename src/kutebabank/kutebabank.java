@@ -13,13 +13,9 @@ import java.sql.ResultSet;
  * @author lenovo
  */
 public class kutebabank {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        new mainmenu().setLocationRelativeTo(null);
-        new mainmenu().setVisible(true); // TODO code application logic here
+        mainmenu menu = new mainmenu();
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
     }
-    
 }
