@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package kutebabank;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -277,7 +274,7 @@ public class Deposit extends JInternalFrame{
         
              Connection conn = connect();
         
-             // Update balance
+             
              String updateSql = "UPDATE account SET balance = balance + ? WHERE acc_id = ?";
              PreparedStatement pstmt = conn.prepareStatement(updateSql);
              pstmt.setDouble(1, depositAmount);
@@ -285,15 +282,15 @@ public class Deposit extends JInternalFrame{
              int rowsAffected = pstmt.executeUpdate();
              
              if (rowsAffected > 0) {
-            // Record transaction
-                 String depositSql = "INSERT INTO deposit(acc_id, cust_id, Date, amount) VALUES (?, ?, 'deposit', NOW())";
+          
+                 String depositSql = "INSERT INTO deposit(acc_id, cust_id, amount) VALUES (?, ?, 'deposit', NOW())";
                  pstmt = conn.prepareStatement(depositSql);
                  pstmt.setString(1, accountNo);
                  pstmt.setString(2, jLabel6.getText());
                  pstmt.setDouble(3, depositAmount);
                  pstmt.executeUpdate();
             
-            // Update displayed balance
+            
                  double newBalance = Double.parseDouble(jLabel11.getText()) + depositAmount;
                  jLabel11.setText(String.valueOf(newBalance));
             

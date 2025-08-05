@@ -14,9 +14,6 @@ import javax.swing.JOptionPane;
 
 public class Customer extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Customer
-     */
     public Customer() {
         initComponents();
         autoID();

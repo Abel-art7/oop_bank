@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package kutebabank;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,9 +14,7 @@ public class mainmenu extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(mainmenu.class.getName());
 
-    /**
-     * Creates new form mainmenu
-     */
+    
     public mainmenu() {
         initComponents();
     }
@@ -223,7 +218,7 @@ public class mainmenu extends javax.swing.JFrame {
    
     public static void main(String args[]) {
         
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new mainmenu().setVisible(true));
         new mainmenu().setLocationRelativeTo(null);
         new mainmenu().setVisible(true);

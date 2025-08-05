@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package kutebabank;
 
 import java.io.BufferedWriter;
@@ -50,7 +47,7 @@ public class Transfer extends javax.swing.JInternalFrame {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopbank", "root", "");
 
-        con.setAutoCommit(false); // for transaction
+        con.setAutoCommit(false); 
 
         
         PreparedStatement pst = con.prepareStatement("SELECT balance FROM account WHERE acc_id = ?");

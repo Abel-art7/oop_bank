@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package kutebabank;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -82,14 +79,14 @@ public void withdraw() throws IOException {
 
         double newBalance = balance - amount;
 
-        // Insert into withdraw table
+        
         pst = con.prepareStatement("INSERT INTO withdraw(acc_id, cust_id, date, amount) VALUES (?, ?, CURDATE(), ?)");
         pst.setString(1, acc_id);
         pst.setString(2, currentCustId);  
         pst.setDouble(3, amount);
         pst.executeUpdate();
 
-        // Update balance in account table
+        
         pst = con.prepareStatement("UPDATE account SET balance = ? WHERE acc_id = ?");
         pst.setDouble(1, newBalance);
         pst.setString(2, acc_id);
